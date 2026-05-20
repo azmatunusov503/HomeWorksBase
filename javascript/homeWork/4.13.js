@@ -9,10 +9,10 @@
 === */
 // Code
 function formLatLong() {
-	let positionLat = 0,
-		positionLong = 0,
-		addressLat = Number(prompt('Введите широту', 0)),
-		addressLong = Number(prompt('Введите долготу', 0)),
+	let positionLat = Number(prompt('Ваш адрес(широта)', 0)),
+		positionLong = Number(prompt('Ваш адрес(долгота)', 0)),
+		addressLat = Number(prompt('Адрес назначение(широта)', 0)),
+		addressLong = Number(prompt('Адрес назначение(долгота)', 0)),
 		dX = addressLat - positionLat,
 		dY = addressLong - positionLong;
 	return dX ** 2 + dY ** 2;
