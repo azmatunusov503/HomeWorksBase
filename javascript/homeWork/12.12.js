@@ -8,7 +8,7 @@
 // Code
 function deletedSignAtStr(str) {
 	return Array.from(str)
-		.filter(num => !!Number(num))
+		.filter(num => num !== '' && num !== null && !isNaN(num))
 		.join('');
 }
 
