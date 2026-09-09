@@ -6,10 +6,15 @@
 === */
 
 // Code
+function deletedSignAtStr(str) {
+	return Array.from(str)
+		.filter(num => !!Number(num))
+		.join('');
+}
 
 // 1й вариант
 function isValidCardCheck(card) {
-	const cardNumArr = Array.from(card);
+	const cardNumArr = Array.from(deletedSignAtStr(card));
 	const parity = cardNumArr.length % 2;
 	const [multiplyByTow, remains] = [[], []];
 
@@ -32,7 +37,7 @@ function isValidCardCheck(card) {
 
 // 2й вариант
 function isValidCardCheckReduce(card) {
-	const cardNumArr = Array.from(card);
+	const cardNumArr = Array.from(deletedSignAtStr(card));
 	const parity = cardNumArr.length % 2;
 	const sum = cardNumArr.reduce((res, num, i) => {
 		let digit = Number(num);
@@ -47,10 +52,11 @@ function isValidCardCheckReduce(card) {
 
 // 3й вариант
 function isValidCardCheckLuhn(ccn) {
+	const card = deletedSignAtStr(ccn);
 	let sum = 0;
-	const parity = ccn.length % 2;
-	for (let i = 0; i < ccn.length; i++) {
-		let digit = Number(ccn[i]);
+	const parity = card.length % 2;
+	for (let i = 0; i < card.length; i++) {
+		let digit = Number(card[i]);
 		if (i % 2 === parity) {
 			digit *= 2;
 			if (digit > 9) {
