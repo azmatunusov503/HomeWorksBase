@@ -11,14 +11,12 @@
 // Code
 
 const query = {
-	params: {
-		search: 'Вася',
-		take: 10,
-	},
-	getQueryParams: function getQuerParams() {
-		const keys = Object.keys(this.params);
-		return '?' + keys.map(key => `${key}=${this.params[key]}`).join('&');
-	},
+	search: 'Вася',
+	take: 10,
 };
 
-console.log(query.getQueryParams());
+function getQueryParams(params) {
+	const keys = Object.keys(params);
+	return '?' + keys.map(key => `${key}=${params[key]}`).join('&');
+}
+console.log(getQueryParams(query));
