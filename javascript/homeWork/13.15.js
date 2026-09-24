@@ -17,6 +17,6 @@ const query = {
 
 function getQueryParams(params) {
 	const keys = Object.keys(params);
-	return '?' + keys.map(key => `${key}=${params[key]}`).join('&');
+	return keys.map(key => `${key}=${params[key]}`).join('&');
 }
 console.log(getQueryParams(query));
