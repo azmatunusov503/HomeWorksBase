@@ -47,8 +47,8 @@ const extEditTask = toDoList.editTask.bind(extendedTask);
 const extSortTask = toDoList.sortTask.bind(extendedTask);
 
 console.log(extAddTask({ id: 1, title: 'test' }));
-console.log(extAddTask({ id: 3, title: 'test' }));
+console.log(extAddTask({ id: 3, title: 'test', priority: 2 }));
 console.log(extDeletedTask(1));
-console.log(extEditTask(3, title, 'Sports'));
-console.log(extSortTask(title));
+console.log(extEditTask(3, 'title', 'Sports'));
+console.log(extSortTask('priority'));
 console.log(extendedTask);
