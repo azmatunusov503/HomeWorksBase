@@ -9,13 +9,14 @@
 const toDoList = {
 	tasks: [{ id: 1 }],
 
-	addTask(task) {
-		this.tasks.push(task);
+	addTask(inTask) {
+		if (this.tasks.find(task => task.id == inTask.id)) return 'Существует';
+		this.tasks.push(inTask);
 		return 'successful';
 	},
 	deleteTask(id) {
 		const index = this.tasks.findIndex(isTask => isTask.id == id);
-		this.tasks.splice(index, 1);
+		if (index != -1) this.tasks.splice(index, 1);
 		return 'successful';
 	},
 	editTask(id, key, value) {
@@ -46,4 +47,8 @@ const extEditTask = toDoList.editTask.bind(extendedTask);
 const extSortTask = toDoList.sortTask.bind(extendedTask);
 
 console.log(extAddTask({ id: 1, title: 'test' }));
+console.log(extAddTask({ id: 3, title: 'test' }));
+console.log(extDeletedTask(1));
+console.log(extEditTask(3, title, 'Sports'));
+console.log(extSortTask(title));
 console.log(extendedTask);
